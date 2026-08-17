@@ -1,0 +1,14 @@
+{
+  "id": "52b6c624-faca-493a-845c-54a06961023d",
+  "name": "/var/www/TEST_logotank_global",
+  "projectResources": {
+    "resources": [
+      {
+        "gitFolder": {
+          "folderUri": "file:///var/www/TEST_logotank_global",
+          "allowWrite": true
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title inertia>{{ config('app.name', 'Laravel') }}</title>
+
+    <link rel="icon" href="/img/favicon.ico" sizes="any">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    @routes(request()->routeIs('admin.*') ? 'admin' : 'public')
+    @viteReactRefresh
+    @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+    @inertiaHead
+
+    <script>
+        const baseUrl = '{{ env('APP_URL') }}';
+        const appName = '{{ env('APP_NAME') }}';
+    </script>
+</head>
+
+<body class="font-sans antialiased">
+    @inertia
+</body>
+
+</html>
