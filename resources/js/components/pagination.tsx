@@ -2,7 +2,6 @@ import React, {useEffect, useRef, useState} from "react"
 import {ChevronLeft, ChevronRight} from "lucide-react";
 import { Transition } from '@headlessui/react'
 import {textNumber} from "@/helper/utils";
-import { RootState } from "@/helper/store";
 import { commonConstants } from "@/constants";
 
 

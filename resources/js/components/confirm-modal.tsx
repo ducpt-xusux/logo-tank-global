@@ -1,5 +1,5 @@
 import {Fragment, useState} from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, DialogBackdrop, Transition } from '@headlessui/react'
 import React from 'react'
 import {LoaderCircle, CheckIcon, X} from "lucide-react";
 import { useTranslation } from 'react-i18next';
@@ -36,7 +36,7 @@ export const ConfirmModal = ({open, closeModal, overlay, message, process, after
                 onClose={closeModal}
             >
                 <div className="min-h-screen px-4 text-center opa">
-                    <Dialog.Overlay className={ overlay ? overlay : "fixed inset-0 bg-gray-200 opacity-75" } />
+                    <DialogBackdrop className={ overlay ? overlay : "fixed inset-0 bg-gray-200 opacity-75" } />
                     <span className="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
                     <Transition.Child
                         as={Fragment}

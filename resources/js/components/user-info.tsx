@@ -4,7 +4,7 @@ import { useInitials } from '@/hooks/use-initials';
 type UserInfoModel = {
     name: string;
     email: string;
-    avatar: string | null;
+    avatar?: string | null;
 };
 
 export function UserInfo({ user, showEmail = false }: { user: UserInfoModel; showEmail?: boolean }) {
