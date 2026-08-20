@@ -10,6 +10,12 @@ use Illuminate\Validation\ValidationException;
 
 class CheckoutService
 {
+
+    /**
+     * Summary of processCheckout
+     * @param ProcessCheckoutRequest $request
+     * @return array{computedTotalFromItems: float, currency: string, diffFromComputed: float, items: array, submittedTotal: float, subtotal: float, tax: float, taxRate: float, totalAmount: float, totalIncludesTax: bool, type: mixed|array{computedTotalFromItems: float, currency: string, diffFromComputed: float, items: array, submittedTotal: float, subtotal: float, tax: float, taxRate: float, totalAmount: float, totalIncludesTax: bool, type: string}}
+     */
     public function processCheckout(ProcessCheckoutRequest $request)
     {
         $validated = $request->validated();

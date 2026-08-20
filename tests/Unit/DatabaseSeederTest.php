@@ -6,6 +6,7 @@ use Database\Seeders\AddressSearchSeeder;
 use Database\Seeders\ColorSeeder;
 use Database\Seeders\DatabaseSeeder;
 use Database\Seeders\DesignerDataSeeder;
+use Database\Seeders\DesignerSeeder;
 use Database\Seeders\IndustrySeeder;
 use Database\Seeders\KeywordLanguageSeeder;
 use Database\Seeders\KeywordSeeder;
@@ -43,6 +44,7 @@ class DatabaseSeederTest extends TestCase
 
         $this->assertSame([
             UserSeeder::class,
+            DesignerSeeder::class,
             ColorSeeder::class,
             IndustrySeeder::class,
             TasteSeeder::class,

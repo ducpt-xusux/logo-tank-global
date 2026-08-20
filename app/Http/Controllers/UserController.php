@@ -38,7 +38,11 @@ class UserController extends DefaultController
 
         return [$query, ['role' => $roles ?? null]];
     }
-
+    /**
+     * createPaymentIntent
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function createPaymentIntent(Request $request): JsonResponse
     {
         $validated = $request->validate([
@@ -53,7 +57,7 @@ class UserController extends DefaultController
             ?? 0
         );
 
-        if (! $checkoutSummary || $totalAmount <= 0) {
+        if (!$checkoutSummary || $totalAmount <= 0) {
             return response()->json([
                 'message' => 'Checkout session is invalid or expired.',
             ], 422);

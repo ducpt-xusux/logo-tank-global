@@ -14,6 +14,7 @@ class CreateOrderLogoTable extends Migration
     public function up()
     {
         Schema::create('lt_t_order_logo', function (Blueprint $table) {
+            $table->id();
             $table->bigInteger('logo_id');
             $table->bigInteger('order_id');
             $table->tinyInteger('logo_manual')->default(0);
@@ -32,5 +33,4 @@ class CreateOrderLogoTable extends Migration
     {
         Schema::dropIfExists('lt_t_order_logo');
     }
-
 }

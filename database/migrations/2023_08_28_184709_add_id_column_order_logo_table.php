@@ -13,6 +13,10 @@ class AddIdColumnOrderLogoTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasColumn('lt_t_order_logo', 'id')) {
+            return;
+        }
+
         Schema::table('lt_t_order_logo', function (Blueprint $table) {
             $table->id()->after('logo_id');
         });
@@ -25,6 +29,10 @@ class AddIdColumnOrderLogoTable extends Migration
      */
     public function down()
     {
+        if (! Schema::hasColumn('lt_t_order_logo', 'id')) {
+            return;
+        }
+
         Schema::table('lt_t_order_logo', function (Blueprint $table) {
             $table->dropColumn('id');
         });
