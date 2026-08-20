@@ -11,14 +11,15 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        api: __DIR__.'/../routes/api.php',
-        commands: __DIR__.'/../routes/console.php',
+        web: __DIR__ . '/../routes/web.php',
+        api: __DIR__ . '/../routes/api.php',
+        commands: __DIR__ . '/../routes/console.php',
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->encryptCookies(except: ['sidebar_state']);
+        $middleware->trustProxies(at: '*');
 
+        $middleware->encryptCookies(except: ['sidebar_state']);
         $middleware->web(append: [
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,
@@ -38,7 +39,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 $locale = 'en';
             }
 
-            return route('public.home', ['locale' => $locale]).'?show_login=true';
+            return route('public.home', ['locale' => $locale]) . '?show_login=true';
         });
     })
     ->withExceptions(function (Exceptions $exceptions) {
