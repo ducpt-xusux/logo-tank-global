@@ -56,7 +56,7 @@
                 </div>
                 <div class="mt-5 flex justify-center">
                     <a
-                        href="{{ route('public.home') }}"
+                        href="{{ route('public.home', ['locale' => app()->getLocale()]) }}"
                         class="flex border rounded-full px-5 py-2 text-white bg-teal-600 text-sm font-bold"
                     >
                         ホームに戻る
